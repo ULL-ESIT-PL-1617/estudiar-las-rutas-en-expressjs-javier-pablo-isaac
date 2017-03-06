@@ -16,6 +16,8 @@
 
 ## Despliegues varios:
 
+**Importante:** El puerto por defecto es siempre 3000.
+
 * [Heroku]()
 * [Gh-pages]()
 * [Gitbook]()

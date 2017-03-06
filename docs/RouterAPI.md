@@ -30,6 +30,8 @@ El router puede usarse para una raíz de URL en particular, pudiendo dividir las
 app.use('/calendar', router);
 ```
 
+Lo anterior se ve en el `ejemplo4_1`.
+
 ### Métodos:
 
 ##### router.all(ruta, [callback,...] callback)
@@ -42,6 +44,8 @@ La propiedad anterior hace a este método útil para ejecutar una lógica global
 // Se requiere autentificación a partir de api/
 router.all('/api/*', requireAuthentication);
 ```
+
+**NOTA:** en el `ejemplo4_2` se usa el router a partir de /router. Por tanto, la autorización es en: /router/api/*
 
 ##### router.METODO(ruta, [callback, ...] callback)
 
@@ -86,6 +90,8 @@ router.param('user', function(req, res, next, id) {
   });
 });
 ```
+
+En el `ejemplo4_3.js` veremmos como captar un parámetro y modificarlo ligeramente. (Añadiendo tutu al final de un nombre) La ruta es: `/router/usuario/:nombre`
 
 El comportamiento del metodo router.param(name, callback) puede ser totalmente cambiado pasando tan solo una funcion a router.param(). Esta funcion es una implementacion de como router.param(name, callback) debe comportarse - acepta dos parametros y debe devolver un middleware.
 
@@ -164,6 +170,8 @@ router.route('/users/:user_id')
 });
 ```
 
+En el `ejemplo4_4` se usa esto para separar esta ruta (/router/usuarios) y devolver el nombre del método usado.
+
 ##### router.use([path], [function, ...] function)
 
 El uso de `use` hace que se use la función middleware especificada, con la ruta también especificada (opcionalmente), que por defecto es `/`.
@@ -195,6 +203,8 @@ app.use('/foo', router);
 
 app.listen(3000);
 ```
+
+En el `ejemplo4_5` se mostrará por defecto en el navegador hello word (router/*), a no ser que se acceda a /router/especial.
 
 El camino de montaje se quita y no es visible para la función  middleware. El principal efecto de esta característica es que una función middleware puede operar sin cambios en el codigo independientemente de su prefijo en la ruta.
 

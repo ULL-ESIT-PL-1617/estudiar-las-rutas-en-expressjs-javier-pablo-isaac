@@ -74,3 +74,63 @@ gulp.task('ejemplo2_5', function() {
 		console.log(`stderr: ${stderr}`);
 	});
 });
+
+gulp.task('ejemplo4_1', function() {
+	var child = exec('node ./src/ejemplo4_1.js', function(error, stdout, stderr) {
+
+		if (error) {
+ 		   console.error(`exec error: ${error}`);
+    		   return;
+ 		}
+		console.log(`stdout: ${stdout}`);
+		console.log(`stderr: ${stderr}`);
+	});
+});
+
+gulp.task('ejemplo4_2', function() {
+	var child = exec('node ./src/ejemplo4_2.js', function(error, stdout, stderr) {
+
+		if (error) {
+ 		   console.error(`exec error: ${error}`);
+    		   return;
+ 		}
+		console.log(`stdout: ${stdout}`);
+		console.log(`stderr: ${stderr}`);
+	});
+});
+
+gulp.task('ejemplo4_3', function() {
+	var child = exec('node ./src/ejemplo4_3.js', function(error, stdout, stderr) {
+
+		if (error) {
+ 		   console.error(`exec error: ${error}`);
+    		   return;
+ 		}
+		console.log(`stdout: ${stdout}`);
+		console.log(`stderr: ${stderr}`);
+	});
+});
+
+gulp.task('ejemplo4_4', function() {
+	var child = exec('node ./src/ejemplo4_4.js', function(error, stdout, stderr) {
+
+		if (error) {
+ 		   console.error(`exec error: ${error}`);
+    		   return;
+ 		}
+		console.log(`stdout: ${stdout}`);
+		console.log(`stderr: ${stderr}`);
+	});
+});
+
+gulp.task('ejemplo4_5', function() {
+	var child = exec('node ./src/ejemplo4_5.js', function(error, stdout, stderr) {
+
+		if (error) {
+ 		   console.error(`exec error: ${error}`);
+    		   return;
+ 		}
+		console.log(`stdout: ${stdout}`);
+		console.log(`stderr: ${stderr}`);
+	});
+});
