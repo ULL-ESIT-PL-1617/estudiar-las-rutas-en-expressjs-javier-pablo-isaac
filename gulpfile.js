@@ -170,3 +170,15 @@ gulp.task('ejemplo3_3', function() {
 		console.log(`stderr: ${stderr}`);
 	});
 });
+
+gulp.task('ejemplo3_4', function() {
+	var child = exec('node ./src/ejemplo3_4.js', function(error, stdout, stderr) {
+
+		if (error) {
+ 		   console.error(`exec error: ${error}`);
+    		   return;
+ 		}
+		console.log(`stdout: ${stdout}`);
+		console.log(`stderr: ${stderr}`);
+	});
+});
