@@ -210,3 +210,51 @@ app.use(function(err, req, res, next) {
   res.status(500).send('Se ha producido un error.');
 });
 ````
+
+**Nota**: Express se suministra con un manejador de errores incorporado, 
+que se encarga de los errores que aparecen en la aplicación. Esta función 
+de middleware de manejo de errores predeterminada se añade al final de la pila 
+de funciones de middleware.
+
+## Middleware incorporado
+
+La única función middleware incorporada en Express es `express.static`. Esta función
+se encarga de serviro los elementos estáticos de una aplicación Express.
+
+```javascript
+express.static(ruta, [options])
+```
+
+* El argumento `ruta` especifica el directorio raíz desde el que se realiza el 
+servicio de activos estáticos. 
+
+El objeto `options` es opcional y puede tener diferentes propiedades. A continuación,
+se muestra un ejemplo de objeto `options`:
+
+``` javascript
+var options = {
+  dotfiles: 'ignore',
+  etag: false,
+  extensions: ['htm', 'html'],
+  index: false,
+  maxAge: '1d',
+  redirect: false,
+  setHeaders: function (res, path, stat) {
+    res.set('x-timestamp', Date.now());
+  }
+}
+
+app.use(express.static('public', options));
+```
+
+Para más información sobre las propiedades del objeto `options`, 
+pulse [aquí](http://expressjs.com/es/guide/using-middleware.html#middleware.built-in).
+
+Para cada aplicación puede haber más de un directorio estático.
+
+```javascript
+app.use(express.static('public'));
+app.use(express.static('photos'));
+app.use(express.static('docs'));
+app.use(express.static('files'));
+```
