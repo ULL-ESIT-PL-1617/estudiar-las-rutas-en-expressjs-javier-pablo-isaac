@@ -250,7 +250,7 @@ app.use(express.static('public', options));
 Para más información sobre las propiedades del objeto `options`, 
 pulse [aquí](http://expressjs.com/es/guide/using-middleware.html#middleware.built-in).
 
-Para cada aplicación puede haber más de un directorio estático.
+**Nota**: para cada aplicación puede haber más de un directorio estático.
 
 ```javascript
 app.use(express.static('public'));
@@ -258,3 +258,30 @@ app.use(express.static('photos'));
 app.use(express.static('docs'));
 app.use(express.static('files'));
 ```
+
+## Middleware de terceros
+
+Los middleware de terceros son empleados para añadir funcionalidad a las 
+aplicaciones de Express. 
+
+Para poder utilizar los middlewares de terceros, es necesario instalar el módulo
+`Node.js` necesario y cargarlo en la aplicación a nivel de aplicación o a nivel de
+direccionador. 
+
+A continuación, se muestra un ejemplo de instalación y de carga de un de una función
+middlware de terceros. 
+
+```bash
+$ npm install slash
+```
+
+```javascript
+var express = require('express');
+var app = express();
+var slash = require('express-slash');
+
+app.use(slash());
+```
+
+**Nota**: en el siguiente enlace se encuentran algunos módulos de Express. 
+Pulse [aquí](https://expressjs.com/es/resources/middleware.html).
