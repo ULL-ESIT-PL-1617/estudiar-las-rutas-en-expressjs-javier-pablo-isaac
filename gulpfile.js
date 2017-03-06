@@ -1,4 +1,4 @@
-
+var ghpages = require('gh-pages');
 var gulp = require('gulp');
 var path = require('path');
 var exec = require('child_process').exec;
@@ -182,3 +182,10 @@ gulp.task('ejemplo3_4', function() {
 		console.log(`stderr: ${stderr}`);
 	});
 });
+
+
+gulp.task('deploy', function() {
+ghpages.publish(path.join(__dirname, '_book'), function(err) {
+      console.log('publicado en gh-pages');
+    });
+  });
