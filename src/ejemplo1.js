@@ -1,3 +1,6 @@
+var express = require('express')
+var app = express()
+
 // Responderá a las peticiones GET en la raíz
 app.get('/', function (req, res) {
   res.send('GET')
@@ -36,3 +39,8 @@ app.trace('/', function (req, res) {
 app.path('/', function (req, res) {
   res.send('PATH')
 })
+
+app.set('port', (process.env.PORT || 3000));
+app.listen(app.get('port'), function () {
+  console.log('Example app listening on port 3000!');
+});
