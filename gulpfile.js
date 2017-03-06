@@ -134,3 +134,39 @@ gulp.task('ejemplo4_5', function() {
 		console.log(`stderr: ${stderr}`);
 	});
 });
+
+gulp.task('ejemplo3_1', function() {
+	var child = exec('node ./src/ejemplo3_1.js', function(error, stdout, stderr) {
+
+		if (error) {
+ 		   console.error(`exec error: ${error}`);
+    		   return;
+ 		}
+		console.log(`stdout: ${stdout}`);
+		console.log(`stderr: ${stderr}`);
+	});
+});
+
+gulp.task('ejemplo3_2', function() {
+	var child = exec('node ./src/ejemplo3_2.js', function(error, stdout, stderr) {
+
+		if (error) {
+ 		   console.error(`exec error: ${error}`);
+    		   return;
+ 		}
+		console.log(`stdout: ${stdout}`);
+		console.log(`stderr: ${stderr}`);
+	});
+});
+
+gulp.task('ejemplo3_3', function() {
+	var child = exec('node ./src/ejemplo3_3.js', function(error, stdout, stderr) {
+
+		if (error) {
+ 		   console.error(`exec error: ${error}`);
+    		   return;
+ 		}
+		console.log(`stdout: ${stdout}`);
+		console.log(`stderr: ${stderr}`);
+	});
+});
