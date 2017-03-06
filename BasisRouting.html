@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>Enrutamiento básico · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="BasisRouting.html" />
+    <link rel="next" href="RouterAPI.html" />
     
+    
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -87,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -100,7 +102,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="BasisRouting.html">
+        <li class="chapter active" data-level="1.2" data-path="BasisRouting.html">
             
                 <a href="BasisRouting.html">
             
@@ -182,7 +184,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Enrutamiento básico</a>
     </h1>
 </div>
 
@@ -197,29 +199,43 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="pr&#xE1;ctica-estudiar-las-rutas-en-expressjs">Pr&#xE1;ctica: Estudiar las Rutas en ExpressJS</h1>
-<h2 id="miembros-y-sus-p&#xE1;ginas-personales">Miembros y sus p&#xE1;ginas personales:</h2>
-<ul>
-<li><a href="https://alu0100890839.github.io/" target="_blank">Pablo Pastor Mart&#xED;n</a></li>
-<li><a href="https://alu0100841565.github.io/" target="_blank">Isaac Manuel Aim&#xE1;n Salas</a></li>
-<li><a href="https://alu0100884982.github.io" target="_blank">Javier Ramos Fern&#xE1;ndez</a></li>
-</ul>
-<h2 id="descripci&#xF3;n-de-la-pr&#xE1;ctica">Descripci&#xF3;n de la pr&#xE1;ctica:</h2>
-<p><a href="https://casianorodriguezleon.gitbooks.io/ull-esit-1617/practicas/practicalearningrouting.html" target="_blank">Enlace a la descripci&#xF3;n</a></p>
-<h2 id="campus-virtual-de-la-asignatura">Campus virtual de la asignatura:</h2>
-<p><a href="https://campusvirtual.ull.es/1617/course/view.php?id=1148" target="_blank">P&#xE1;gina en el campus virtual</a></p>
-<h2 id="despliegues-varios">Despliegues varios:</h2>
-<ul>
-<li><a href="">Heroku</a></li>
-<li><a href="">Gh-pages</a></li>
-<li><a href="">Gitbook</a></li>
-<li>IAAS:<ul>
-<li><a href="">Pablo Pastor Mart&#xED;n</a></li>
-<li><a href="">Isaac Lolo Aim&#xE1;n Salas</a></li>
-<li><a href="">Javier Ramos Fern&#xE1;ndez</a></li>
-</ul>
-</li>
-</ul>
+                                <h1 id="enrutamiento-b&#xE1;sico">Enrutamiento b&#xE1;sico</h1>
+<p>El enrutamiento (routing) se define como la manera en la que una aplicaci&#xF3;n responde a la petici&#xF3;n de un cliente con respecto a una ruta y un m&#xE9;todo HTTP concreto (GET, POST, etc.).</p>
+<p>Cada ruta puede tener m&#xE1;s de una funci&#xF3;n manejadora de la misma, las cuales son ejecutadas cuando la ruta coincide con las que &#xE9;stas esperan.</p>
+<p> La definici&#xF3;n de una ruta tiene la siguiente forma:</p>
+<pre><code class="lang-javascript">app.METODO(ruta, manejador)
+</code></pre>
+<p>En la anterior l&#xED;nea encontramos:</p>
+<dl>
+  <dt><strong>app</strong></dt>
+  <dd>Una instancia de express.</dd>
+  <dt><strong>METODO</strong></dt>
+  <dd>M&#xE9;todo de petici&#xF3;n HTTP (En min&#xFA;sucula).</dd>
+  <dt><strong>ruta</strong></dt>
+  <dd>Ruta en el servidor.</dd>
+  <dt><strong>manejador</strong></dt>
+  <dd>Funci&#xF3;n que se ejecuta cuando la ruta coincide.</dd>
+</dl>
+
+<p>Ejecutando el <code>ejemplo 1</code> obtendremos un servidor que devuelve el nombre del m&#xE9;todo que usamos al realizar la petici&#xF3;n. Este es su c&#xF3;digo:</p>
+<pre><code class="lang-javascript">
+<span class="hljs-comment">// Responder&#xE1; a las peticiones GET en la ra&#xED;z</span>
+app.get(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+  res.send(<span class="hljs-string">&apos;GET&apos;</span>)
+})
+
+<span class="hljs-comment">// Responder&#xE1; a las peticiones POST en la ra&#xED;z</span>
+app.post(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+  res.send(<span class="hljs-string">&apos;POST&apos;</span>)
+})
+
+<span class="hljs-comment">// Responder&#xE1; a las peticiones HEAD en la ra&#xED;z</span>
+app.head(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+  res.send(<span class="hljs-string">&apos;HEAD&apos;</span>)
+})
+
+<span class="hljs-comment">//Y as&#xED; sucesivamente</span>
+</code></pre>
 
                                 
                                 </section>
@@ -247,8 +263,12 @@
 
             
                 
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="BasisRouting.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Enrutamiento básico">
+                
+                <a href="RouterAPI.html" class="navigation navigation-next " aria-label="Next page: Router API">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -259,7 +279,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Enrutamiento básico","level":"1.2","depth":1,"path":"BasisRouting.md","ref":"BasisRouting.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-03-06T17:22:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-06T20:31:47.213Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Enrutamiento básico","level":"1.2","depth":1,"next":{"title":"Router API","level":"1.3","depth":1,"path":"RouterAPI.md","ref":"RouterAPI.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"BasisRouting.md","mtime":"2017-03-06T17:22:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-06T20:31:47.213Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
