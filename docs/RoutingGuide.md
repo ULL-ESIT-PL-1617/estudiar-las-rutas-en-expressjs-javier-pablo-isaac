@@ -214,7 +214,9 @@ router.get('/about', function(req, res) {
 
 module.exports = router;
 ```
+
 A continuación, se carga el módulo del direccionador en la aplicación:
+
 ```javascript
 var ejemplo = require('./ejemplo');
 ...
