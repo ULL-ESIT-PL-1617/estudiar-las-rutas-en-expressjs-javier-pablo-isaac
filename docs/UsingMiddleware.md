@@ -56,7 +56,7 @@ app.use(function (req, res, next) {
   next();
 });
 ```
-
+**Véase ejemplo3_1.js en `src/`**
 #### Ejemplo 2
 
 En Express es posible servir varias rutas en un solo middleware haciendo uso
@@ -148,11 +148,12 @@ app.get('/user/:id', function (req, res, next) {
   res.render('special');
 });
 ```
+**Véase ejemplo3_2.js en `src/`**
 
 ## Middleware de nivel de direccionador
 
 El middleware de nivel de direccionador funciona de la misma manera que el
-middleware de nivel de aplicación. La única diferencia es que está enlazado a una 
+middleware de nivel de aplicación. La única diferencia es que está enlazado a una
 instancia de `express.Router()`.
 
 ```javascript
@@ -160,7 +161,7 @@ var router = express.Router();
 ```
 
 El siguiente código de ejemplo replica el funcionamineto del middleware
-de aplicación que hemos descrito anteriormente. Sin embargo, para este caso 
+de aplicación que hemos descrito anteriormente. Sin embargo, para este caso
 hemos hecho uso de middlewares de nivel de direccionador.
 
 ```javascript
@@ -198,10 +199,10 @@ app.use('/', router);
 
 ## Middleware de manejo de errores
 
-El middleware de manejo de errores siempre utiliza **cuatro argumentos**. 
+El middleware de manejo de errores siempre utiliza **cuatro argumentos**.
 
 Aunque no necesite utilizar el objeto `next`, debe estar especificado.
-De lo contrario, el objeto `next` se interpretará como middleware normal 
+De lo contrario, el objeto `next` se interpretará como middleware normal
 y, por tanto, no podrá manejar errores.
 
 ```javascript
@@ -211,9 +212,9 @@ app.use(function(err, req, res, next) {
 });
 ````
 
-**Nota**: Express se suministra con un manejador de errores incorporado, 
-que se encarga de los errores que aparecen en la aplicación. Esta función 
-de middleware de manejo de errores predeterminada se añade al final de la pila 
+**Nota**: Express se suministra con un manejador de errores incorporado,
+que se encarga de los errores que aparecen en la aplicación. Esta función
+de middleware de manejo de errores predeterminada se añade al final de la pila
 de funciones de middleware.
 
 ## Middleware incorporado
@@ -225,8 +226,8 @@ se encarga de serviro los elementos estáticos de una aplicación Express.
 express.static(ruta, [options])
 ```
 
-* El argumento `ruta` especifica el directorio raíz desde el que se realiza el 
-servicio de activos estáticos. 
+* El argumento `ruta` especifica el directorio raíz desde el que se realiza el
+servicio de activos estáticos.
 
 El objeto `options` es opcional y puede tener diferentes propiedades. A continuación,
 se muestra un ejemplo de objeto `options`:
@@ -247,7 +248,7 @@ var options = {
 app.use(express.static('public', options));
 ```
 
-Para más información sobre las propiedades del objeto `options`, 
+Para más información sobre las propiedades del objeto `options`,
 pulse [aquí](http://expressjs.com/es/guide/using-middleware.html#middleware.built-in).
 
 **Nota**: para cada aplicación puede haber más de un directorio estático.
@@ -259,17 +260,19 @@ app.use(express.static('docs'));
 app.use(express.static('files'));
 ```
 
+**Véase ejemplo3_4.js en `src/`**
+
 ## Middleware de terceros
 
-Los middleware de terceros son empleados para añadir funcionalidad a las 
-aplicaciones de Express. 
+Los middleware de terceros son empleados para añadir funcionalidad a las
+aplicaciones de Express.
 
 Para poder utilizar los middlewares de terceros, es necesario instalar el módulo
 `Node.js` necesario y cargarlo en la aplicación a nivel de aplicación o a nivel de
-direccionador. 
+direccionador.
 
 A continuación, se muestra un ejemplo de instalación y de carga de un de una función
-middlware de terceros. 
+middlware de terceros.
 
 ```bash
 $ npm install slash
@@ -283,5 +286,7 @@ var slash = require('express-slash');
 app.use(slash());
 ```
 
-**Nota**: en el siguiente enlace se encuentran algunos módulos de Express. 
+**Véase ejemplo3_3.js en `src/`**
+
+**Nota**: en el siguiente enlace se encuentran algunos módulos de Express.
 Pulse [aquí](https://expressjs.com/es/resources/middleware.html).
