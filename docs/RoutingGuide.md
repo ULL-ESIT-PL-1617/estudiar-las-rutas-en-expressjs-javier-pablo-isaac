@@ -22,12 +22,12 @@ El siguiente código es un ejemplo de las rutas que se definen para los métodos
 ```javascript
 // Método de direccionamiento GET
 app.get('/', function (req, res) {
-  res.send('GET request to the homepage')
+  res.send('Petición GET a la página principal')
 })
 
 // Método de direccionamiento POST
 app.post('/', function (req, res) {
-  res.send('POST request to the homepage')
+  res.send('Petición POST a la página principal')
 })
 ```
 >Express da soporte a los siguientes métodos de direccionamiento que se corresponden con los métodos HTTP: *get*, *post*, *put*, *head*, *delete*, *options*, *trace*, *copy*, *lock*, *mkcol*, *move*, *purge*, *propfind*, *proppatch*, *unlock*, *report*, *mkactivity*, *checkout*, *merge*, *m-search*, *notify*, *subscribe*, *unsubscribe*, *patch*, *search* y *connect*.
@@ -193,7 +193,7 @@ app.route('/libro')
 Para crear rutas manejadores de rutas montables y modulares se puede utilizar  la clase ``express.Router``. Una instancia **Router** es un sistema de middleware y direccionamiento completo; por este motivo, a menudo se conoce como una “miniaplicación”.
 
 El siguiente ejemplo crea un direccionador como un módulo, carga una función de middleware en él, define algunas rutas y monta el módulo de direccionador en una vía de acceso en la aplicación principal.
-Para visualizar su utilidad, se crea un archivo llamado **ejemplo.js** en el directorio de la aplicación, con el siguiente contenido:
+Para visualizar su utilidad, se crea un archivo llamado **modulo.js** en el directorio de la aplicación, con el siguiente contenido:
 ```javascript
 var express = require('express');
 var router = express.Router();
@@ -218,8 +218,8 @@ module.exports = router;
 A continuación, se carga el módulo del direccionador en la aplicación:
 
 ```javascript
-var ejemplo = require('./ejemplo');
+var ejemplo = require('./modulo');
 ...
-app.use('/ejemplo', ejemplo)
+app.use('/modulo', ejemplo)
 ```
-La aplicación ahora podrá manejar solicitudes a ``/ejemplo`` y ``/ejemplo/about``, así como invocar la función de middleware ``timeLog`` que es específica de la ruta.
+La aplicación ahora podrá manejar solicitudes a ``/modulo`` y ``/modulo/about``, así como invocar la función de middleware ``timeLog`` que es específica de la ruta.
