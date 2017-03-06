@@ -16,10 +16,10 @@
 
 ## Despliegues varios:
 
-* [Heroku]()
-* [Gh-pages]()
-* [Gitbook]()
+* [Heroku](https://peaceful-citadel-34930.herokuapp.com)
+* [Gh-pages](https://ull-esit-pl-1617.github.io/estudiar-las-rutas-en-expressjs-javier-pablo-isaac/)
+* [Gitbook](https://alu0100890839.gitbooks.io/rutas-express/content/)
 * IAAS:
-  * [Pablo Pastor Martín]()
-  * [Isaac Lolo Aimán Salas]()
-  * [Javier Ramos Fernández]()
+  * [Pablo Pastor Martín](http://10.6.128.120:8080)
+  * [Isaac Lolo Aimán Salas](http://10.6.128.92:8080)
+  * [Javier Ramos Fernández](http://10.6.129.252:8080)
